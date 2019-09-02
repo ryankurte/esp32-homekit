@@ -13,14 +13,19 @@ static gpio_num_t LED_PORT = GPIO_NUM_25;
 
 #define LED_STRIP_LENGTH (32 * 8 * 1)
 #define LED_STRIP_RMT_INTR_NUM 19U
-#define LED_RGB_SCALE 255 
+#define LED_RGB_SCALE 255
+#define BRIGHT_LIMIT 32
 
 static void hsi2rgb(float h, float s, float i, pixelColor_t* rgb);
 
-#define NUM_STRANDS 1
+#define NUM_STRANDS 5
 
 strand_t STRANDS[NUM_STRANDS] = { // Avoid using any of the strapping pins on the ESP32
-  { .rmtChannel = RMT_CHANNEL_1, .gpioNum = GPIO_NUM_15, .ledType = LED_WS2812B_V3, .brightLimit = 32, .numPixels =  LED_STRIP_LENGTH, .pixels = NULL, ._stateVars = NULL },
+  {.rmtChannel = RMT_CHANNEL_0, .gpioNum = GPIO_NUM_13, .ledType = LED_WS2812B_V3, .brightLimit = BRIGHT_LIMIT, .numPixels =  LED_STRIP_LENGTH},
+  {.rmtChannel = RMT_CHANNEL_1, .gpioNum = GPIO_NUM_14, .ledType = LED_WS2812B_V3, .brightLimit = BRIGHT_LIMIT, .numPixels =  LED_STRIP_LENGTH},
+  {.rmtChannel = RMT_CHANNEL_2, .gpioNum = GPIO_NUM_15, .ledType = LED_WS2812B_V3, .brightLimit = BRIGHT_LIMIT, .numPixels =  LED_STRIP_LENGTH},
+  {.rmtChannel = RMT_CHANNEL_3, .gpioNum = GPIO_NUM_16, .ledType = LED_WS2812B_V3, .brightLimit = BRIGHT_LIMIT, .numPixels =  LED_STRIP_LENGTH},
+  {.rmtChannel = RMT_CHANNEL_4, .gpioNum = GPIO_NUM_17, .ledType = LED_WS2812B_V3, .brightLimit = BRIGHT_LIMIT, .numPixels =  LED_STRIP_LENGTH},
 };
 
 extern void* a;

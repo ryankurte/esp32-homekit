@@ -23,8 +23,8 @@
 #define ARRAY_SIZE(array) (sizeof(array) / sizeof(array[0]))
 
 #if 1
-#define EXAMPLE_ESP_WIFI_SSID "ssid-here"
-#define EXAMPLE_ESP_WIFI_PASS "password-too?"
+#define EXAMPLE_ESP_WIFI_SSID "shitty-iot"
+#define EXAMPLE_ESP_WIFI_PASS "OsierlikeBufoniteQuagStrewn"
 #endif
 #if 0
 #define EXAMPLE_ESP_WIFI_SSID "NO_RUN"
